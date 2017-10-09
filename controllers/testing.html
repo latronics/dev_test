@@ -1,0 +1,35 @@
+{include file="header.html"}
+{include file="messages/error_success_msg.html"} <br clear="all" />
+<h4>Testing{if $id gt 0} for {$id}{/if}</h4>
+<table cellpadding="5" cellspacing="3" border="0" class="admintable3">
+  <tr>
+    <th>BCN</th>
+    <th>Post</th>
+    <th>Battery</th>
+    <th>Charger</th>
+    <th>Problem</th>
+    <th>Notes</th>
+    <th>RtS</th>
+    <th>Last Updated</th>
+    <th>Tech</th>
+  </tr>
+  {foreach from=$list key=k item=l}
+  
+      <tr>
+      <td>{$l.bcn}</td> 
+      <td>{$l.post}</td>
+      <td>{$l.battery}</td>
+      <td>{$l.charger}</td>
+      <td>{$l.problems}</td>
+      <td>{$l.notes}</td>
+      <td>{$l.rts}</td>
+      <td>{$l.techlastupdate}</td>
+      <td>{$admins[$l.tech]}{$l.tech}</td>
+      </tr>
+  {/foreach}
+</table>
+<br clear="all" />
+{include file="mywarehouse/main_paging.html" pages=$pages page=$page}
+
+
+{include file="footer.html"} 
