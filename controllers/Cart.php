@@ -1,6 +1,28 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Cart extends Controller {
+function Cart()
+{
+		parent::Controller();
 
+		if (isset($this->session->userdata['user_id']))
+		{
+			$this->load->model('Auth_model');
+			$this->Auth_model->VerifyUser();
+		}
+
+		$this->load->model('Product_model');
+
+		$this->mysmarty->assign('session',$this->session->userdata);
+		$this->mysmarty->assign('ctr', ReturnCountries($this->config->config['language_abbr']));
+		$this->mysmarty->assign('sts', ReturnStates());
+
+
+		if (isset($this->session->userdata['cart']) && ($this->session->userdata['cart'] != '') )
+		{
+			$this->mysmarty->assign('cartsession',$this->session->userdata['cart']);
+			$this->mysmarty->assign('carttotal', $this->_CartTotal());
+		}
+}
 function index()
 {
 	Redirect('');
