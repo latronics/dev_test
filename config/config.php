@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 date_default_timezone_set('America/Los_Angeles');
-$config['base_url']	= "http://dev.la-tronics.com";
+$config['base_url']	= "http://dev2.la-tronics.com";
 $config['no_reply_email']	= "info@la-tronics.com";
 $config['newsletter_email']	= "info@la-tronics.com";
 $config['support_email'] = "365@1websolutions.net";
